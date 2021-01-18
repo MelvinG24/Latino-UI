@@ -1,0 +1,52 @@
+//Estructura de un programa orientado a objetos con Latino
+//Inicio de frm  | Nombre del frm
+INICIO FORMULARIO frmPrincipal
+    _EstiloBorde     = 3
+    _Titulo          = "Ventana de Muestra"
+    _Ancho           = 600  //Ancho del formulario en pixeles
+    _Altura          = 450  //Alto del formulario en pixeles
+    _Horizontal      = 250  //Top en pixeles
+    _Vertical        = 400  //Left en pixeles
+    _BtnMax          = falso
+    _BtnMin          = verdadero
+    _MostrarBT       = verdadero //Mostrar en la Barra de Tareas (Taskbar)
+    _PositionInicial = 2
+    INICIO OBJ_PIC picNombre
+        _AutoAjuste = verdadero
+        _Ancho      = 50
+        _Altura     = 50
+        _Horizontal = 0
+        _Vertical   = 0
+        _Imagen     = "..\img\pic.png"
+        _Index      = 0
+    FIN
+    INICIO OBJ_BTN btnOK
+        _Cancelar   = falso
+        _Titulo     = "OK"
+        _Defecto    = verdadero
+        _Ancho      = 200
+        _Altura     = 50
+        _Horizontal = 70
+        _Vertical   = 70
+        _Index      = 1
+    FIN
+    INICIO OBJ_BTN btnCancelar
+        _Cancelar   = verdadero
+        _Titulo     = "Cancelar"
+        _Defecto    = falso
+        _Ancho      = 200
+        _Altura     = 50
+        _Horizontal = 210
+        _Vertical   = 70
+        _Index      = 2
+    FIN
+FIN FORMULARIO
+
+//Despues de la declaración del formulario, se inicia el código en Latino
+yo = frmPrincipal
+
+sub frmPrincipal.cargar()
+    yo.Titulo = "Ventana de prueba Latino POO"
+    btnOK.Titulo = "Boton OK"
+    btnCancelar.Titulo = "Boton Cancelar"
+fin

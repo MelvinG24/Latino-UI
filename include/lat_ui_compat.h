@@ -31,7 +31,7 @@
 // INICIO _WIN32
 #define LATINO_BUILD_AS_DLL
 
-int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
+//int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
 // FIN _WIN32
 #else
 /** Unix*/

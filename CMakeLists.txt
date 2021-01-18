@@ -64,6 +64,8 @@ endif()
 # include_directories(include)
 # endif()
 
+include_directories(include)
+
 add_library(latino-ui SHARED src/latino-ui.c)
 target_link_libraries(latino-ui latino)
 

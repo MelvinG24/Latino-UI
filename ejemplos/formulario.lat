@@ -1,44 +1,44 @@
 //Estructura de un programa orientado a objetos con Latino
 //Inicio de frm  | Nombre del frm
 INICIO FORMULARIO frmPrincipal
-    _EstiloBorde     = 3
-    _Titulo          = "Ventana de Muestra"
-    _Ancho           = 600  //Ancho del formulario en pixeles
-    _Altura          = 450  //Alto del formulario en pixeles
-    _Horizontal      = 250  //Top en pixeles
-    _Vertical        = 400  //Left en pixeles
-    _BtnMax          = falso
-    _BtnMin          = verdadero
-    _MostrarBT       = verdadero //Mostrar en la Barra de Tareas (Taskbar)
-    _PositionInicial = 2
+    _estilo_border    = 3
+    _titulo           = "Ventana de Muestra"
+    _ancho            = 600  //Ancho del formulario en pixeles
+    _alto             = 450  //Alto del formulario en pixeles
+    _horizontal       = 250  //Top en pixeles
+    _vertical         = 400  //Left en pixeles
+    _btn_max          = falso
+    _btn_min          = verdadero
+    _mostrar_barra    = verdadero //Mostrar en la Barra de Tareas (Taskbar)
+    _posicion_inicial = 2
     INICIO OBJ_PIC picNombre
-        _AutoAjuste = verdadero
-        _Ancho      = 50
-        _Altura     = 50
-        _Horizontal = 0
-        _Vertical   = 0
-        _Imagen     = "..\img\pic.png"
-        _Index      = 0
+        _auto_ajuste  = verdadero
+        _ancho        = 50
+        _alto         = 50
+        _horizontal   = 0
+        _vertical     = 0
+        _imagen       = "..\img\pic.png"
+        _index        = 0
     FIN
     INICIO OBJ_BTN btnOK
-        _Cancelar   = falso
-        _Titulo     = "OK"
-        _Defecto    = verdadero
-        _Ancho      = 200
-        _Altura     = 50
-        _Horizontal = 70
-        _Vertical   = 70
-        _Index      = 1
+        _cancelar     = falso
+        _titulo       = "OK"
+        _defecto      = verdadero
+        _ancho        = 200
+        _alto         = 50
+        _horizontal   = 70
+        _vertical     = 70
+        _index        = 1
     FIN
     INICIO OBJ_BTN btnCancelar
-        _Cancelar   = verdadero
-        _Titulo     = "Cancelar"
-        _Defecto    = falso
-        _Ancho      = 200
-        _Altura     = 50
-        _Horizontal = 210
-        _Vertical   = 70
-        _Index      = 2
+        _cancelar     = verdadero
+        _titulo       = "Cancelar"
+        _defecto      = falso
+        _ancho        = 200
+        _alto         = 50
+        _horizontal   = 210
+        _vertical     = 70
+        _index        = 2
     FIN
 FIN FORMULARIO
 

@@ -1,3 +1,12 @@
+%option nounistd
+%option outfile="latlexui.c" header-file="latlexui.h"
+%option warn nodefault
+%option reentrant noyywrap never-interactive
+%option bison-bridge bison-locations
+%option yylineno
+%option extra-type="struct lex_state *"
+%option nounput
+
 %{
 /*********************************************************************************
 * The MIT License (MIT)                                                          *
@@ -86,5 +95,8 @@ extern int yylex (YYSTYPE * yylval_param,YYLTYPE * yylloc_param ,yyscan_t yyscan
  /* names */
 [_A-Z]*                                 { yylval->node = latA_var(yytext, yylloc->first_line, yylloc->first_column, 1); return IDENTIFICADOR; }
 [_a-zA-Z][_a-zA-Z0-9]*                  { yylval->node = latA_var(yytext, yylloc->first_line, yylloc->first_column, 0); return IDENTIFICADOR; }
+[\n\r]                                          { ; }  /* ignora saltos de linea */
+[\t]+                                           { ; }  /* ignora espacios en blanco y tabuladores */
+.                                               { ; }  /* ignora caracteres incorrectos */
 
 %%

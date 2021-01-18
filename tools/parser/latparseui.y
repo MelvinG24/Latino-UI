@@ -92,6 +92,7 @@ int yylex (YYSTYPE * yylval_param,YYLTYPE * yylloc_param ,yyscan_t yyscanner);
 %type <node> formulario_form
 %type <node> listado_declaraciones declaraciones listado_objetos
 %type <node> propiedades_general propiedades_form propiedades_obj
+%type <node> objeto objetos
 
 %start programa
 
@@ -120,9 +121,6 @@ listado_declaraciones:
 
 declaraciones:
     formulario_form
-    | objeto_btn
-    | objeto_pic
-    | objeto_txt
     ;
 
 listado_objetos:
@@ -138,6 +136,11 @@ formulario_form:
     ;
 
 objetos:
+    objeto
+    | objetos objeto
+    ;
+
+objeto:
     INICIO listado_objetos IDENTIFICADOR propiedades_obj FIN {
         $$ = latA_UI_objeto(NODO_OBJETO, $3, $4);
     }
@@ -168,10 +171,6 @@ propiedades_obj:
     | _IMAGEN
     | _AUTO_AJUSTE
     ;
-
-// propiedades_obj_pic:
-//     | propiedades_general
-//     ;
 
 %%
 

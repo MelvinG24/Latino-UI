@@ -72,30 +72,39 @@ static void ui_winProc(lat_mv *mv) {
 
 //Mensajes
 static void ui_messagebox(lat_mv *mv) {
-    lat_objeto *d = latC_desapilar(mv);
-    lat_objeto *c = latC_desapilar(mv);
-    lat_objeto *b = latC_desapilar(mv);
-    lat_objeto *a = latC_desapilar(mv);
-    int *dd = (int)latC_checar_numerico(mv, d);
-    char *cc = latC_checar_cadena(mv, c);
-    char *bb = latC_checar_cadena(mv, b);
-    int *aa = (int)latC_checar_numerico(mv, a);
-    int m = (int)MessageBox(aa,bb,cc,dd);
-    lat_objeto *msj = latC_crear_numerico(mv, m);
-    latC_apilar(mv, msj);
+    lat_objeto *o = latC_desapilar(mv);
+    int *ico=0, *btn=0, cant = (int)latC_checar_numerico(mv, o);
+    char *msg="\0", *tl="UI Mensaje Latino";
+    printf(">>> %d\n", cant);
+    if (cant == 1) {
+        msg = latC_checar_cadena(mv, latC_desapilar(mv));
+    } else if (cant == 2) {
+        tl  = latC_checar_cadena(mv, latC_desapilar(mv));
+        msg = latC_checar_cadena(mv, latC_desapilar(mv));
+    } else if (cant == 3) {
+        btn = (int)latC_checar_numerico(mv, latC_desapilar(mv));
+        tl  = latC_checar_cadena(mv, latC_desapilar(mv));
+        msg = latC_checar_cadena(mv, latC_desapilar(mv));
+    } else if (cant == 4) {
+        ico = (int)latC_checar_numerico(mv, latC_desapilar(mv));
+        btn = (int)latC_checar_numerico(mv, latC_desapilar(mv));
+        tl  = latC_checar_cadena(mv, latC_desapilar(mv));
+        msg = latC_checar_cadena(mv, latC_desapilar(mv));
+    } else {
+        latC_error(mv, "Error, minima cantidad de argumentos invalido");
+    }
+    int m = MessageBox(ico,msg,tl,btn);
+    lat_objeto *msgbox = latC_crear_numerico(mv, m);
+    latC_apilar(mv, msgbox);
 }
 
 static void ui_flash(lat_mv *mv) {
     FlashWindow(0,true);
 }
 
-static void ui_proc(lat_mv *mv) {
-    
-}
-
 static const lat_CReg lib_ui[] = {
     {"ventana", ui_winProc, 0},
-    {"mensaje", ui_messagebox, 4},
+    {"mensaje", ui_messagebox, FUNCION_VAR_ARGS},
     {"flash", ui_flash, 0},
     {NULL, NULL}};
 

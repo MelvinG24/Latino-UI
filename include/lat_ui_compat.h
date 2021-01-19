@@ -27,17 +27,17 @@
 
 #define LATINO_LIB
 
+#include "latino.h"
+
 #if (defined __WIN32__) || (defined _WIN32)
 // INICIO _WIN32
 #define LATINO_BUILD_AS_DLL
 
-//int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow);
 // FIN _WIN32
 #else
 /** Unix*/
 //INICIO _UNIX-BASE_OS
 #endif  // FIN _UNIX-BASE_OS
-
-#include "latino.h"
 
 #endif //_LATINO_UI_H_

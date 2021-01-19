@@ -93,16 +93,12 @@ static void ui_proc(lat_mv *mv) {
     
 }
 
-static const lat_CReg libui[] = {
+static const lat_CReg lib_ui[] = {
     {"ventana", ui_winProc, 0},
     {"mensaje", ui_messagebox, 4},
     {"flash", ui_flash, 0},
     {NULL, NULL}};
 
-// void latC_abrir_liblatino_uilib(lat_mv *mv) {
-//     latC_abrir_liblatino(mv, LIB_UI_NAME, libui);
-// }
-
-LATINO_API void latC_abrir_liblatino_uilib(lat_mv *mv) {
-    latC_abrir_liblatino(mv, LIB_UI_NAME, libui);
+LATINO_API void latC_abrir_liblatino_ui(lat_mv *mv) {
+    latC_abrir_liblatino(mv, LIB_UI_NAME, lib_ui);
 }
